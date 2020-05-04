@@ -23,8 +23,14 @@ def get_plate():
 		img = cv2.imdecode(np.fromstring(data,np.uint8),1)
 
 		plate_coor = platedetector.detect_plate(img)
-		plate_chars = charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]])
+		if(len(plate_coor)):
+			plate_chars = charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]])
 		# print(plate_chars)
-		return jsonify(plate_chars = plate_chars)
+			return jsonify(plate_chars = plate_chars)
+		else:
+			return jsonify(plate_chars = '')
 	else:
 		return "400"
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=8000, debug=True)
