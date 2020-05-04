@@ -8,3 +8,4 @@
 6.pip3 install tensorflow==1.14<br>
 7.pip3 install opencv-python<br>
 8.pip3 install pillow <br>
+9.sudo apt-get install libsm6 libxrender1 libfontconfig1 libxext6 <br>
