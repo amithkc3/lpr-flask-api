@@ -13,7 +13,7 @@ print("=======================\nSERVER INITIATED\n=======================\n")
 
 @app.route('/')
 def test():
-    return test()
+    return "hello"
 
 
 @app.route('/get_plate',methods=['POST'])
