@@ -7,4 +7,4 @@
 5.git clone https://github.com/amithkumarc3/FYP-lpr.git<br>
 6.pip3 install tensorflow==1.14<br>
 7.pip3 install opencv-python<br>
-
+8.pip3 install pillow <br>
