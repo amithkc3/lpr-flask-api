@@ -100,7 +100,7 @@ class CR:
     self.infer = self.loaded.signatures["serving_default"]
 
 
-  def predict_tess(image):
+  def predict_tess(self,image):
     text = pytesseract.image_to_string(image)
     text = re.sub(r'[^A-Z0-9a-z]','',text)
     text = re.sub(r'[oO]','0',text)
