@@ -179,7 +179,7 @@ class CR:
     return charList
 
     def opencvReadPlate2(self,img):
-      return predict_tess(img)
+      return self.predict_tess(img)
 ###-------------------------------------------------CR------------------------------------------------
 
 ###-----------------------------------------execution code--------------------------------------------
