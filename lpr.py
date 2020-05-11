@@ -4,6 +4,7 @@ import sys
 import numpy as np
 import os.path
 import tensorflow as tf
+import re
 
 # from google.colab.patches import cv2_imshow
 
@@ -98,6 +99,13 @@ class CR:
     self.loaded = tf.saved_model.load('./WEIGHTS/CNN/')
     self.infer = self.loaded.signatures["serving_default"]
 
+
+  def predict_tess(image):
+    text = pytesseract.image_to_string(image)
+    text = re.sub(r'[^A-Z0-9a-z]','',text)
+    text = re.sub(r'[oO]','0',text)
+    return text
+
   def predict_char_saved(self,img):
     # loaded = tf.saved_model.load('./')
     # infer = loaded.signatures["serving_default"]
@@ -169,6 +177,9 @@ class CR:
           char = img[y1:y2,x1:x2]
           charList.append(self.predict_char_saved(char))
     return charList
+
+    def opencvReadPlate2(self,img):
+      return predict_tess(img)
 ###-------------------------------------------------CR------------------------------------------------
 
 ###-----------------------------------------execution code--------------------------------------------
@@ -176,10 +187,11 @@ class CR:
 # platedetector = LPR(modelConfiguration="./WEIGHTS/darknet-yolov3.cfg",modelWeights = "./WEIGHTS/lapi.weights")
 # charRecognizer = CR(modelFile='./WEIGHTS/character_recognition.h5')
 
-# img = platedetector.read_img('./images/car5.jpg')
+# img = platedetector.read_img('./images/car3.jpg')
 # plate_coor = platedetector.detect_plate(img)
+# if(len(plate_coor)):
 # # cv.imshow("chars",img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]])
-# print(charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]]))
+#   print(charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]]))
 # print("done")
 
 ###-----------------------------------------save model code--------------------------------------------
