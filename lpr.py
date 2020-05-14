@@ -90,7 +90,10 @@ class LPR:
 
 ###-------------------------------------------------LPR-----------------------------------------------
 
-
+def get_plates_from_file(path='./registered_plates.json'):
+  with open(path,'r') as file:
+    json_data = json.load(file)
+  return json_data
 
 
 ###-------------------------------------------------CR------------------------------------------------
@@ -105,6 +108,11 @@ class CR:
     response = requests.post(url,data='')
     plates = json.loads(response.content.decode('utf-8'))
     return plates
+
+  def get_registered_plates_from_file(self,path='./registered_plates.json'):
+    with open(path,'r') as file:
+      json_data = json.load(file)
+    return list(json.loads(json_data))
 
   def predict_char_saved(self,img):
     # loaded = tf.saved_model.load('./')
@@ -178,7 +186,10 @@ class CR:
           charList.append(self.predict_char_saved(char))
 
     plate_str = ''.join(charList)
-    registered_plates = self.get_registered_plates()
+    registered_plates = self.get_registered_plates_from_file()
+    print(plate_str)
+    print(registered_plates)
+    print(get_close_matches(plate_str,registered_plates,cutoff=0.6))
     return get_close_matches(plate_str,registered_plates,cutoff=0.6)
 ###-------------------------------------------------CR------------------------------------------------
 

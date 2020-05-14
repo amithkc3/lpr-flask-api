@@ -4,9 +4,9 @@ from PIL import Image
 import requests
 import sys
 
-def get_plate(img_path='./images/nope.jpg'):
-	url = 'http://35.239.52.119:5000/get_plate'
-	# url = 'http://localhost:5000/get_plate'
+def get_plate(img_path='./images/car1.jpg'):
+	# url = 'http://35.232.168.219:5000/get_plate'
+	url = 'http://localhost:5000/get_plate'
 
 	img = Image.open(img_path)
 	buff = io.BytesIO()
