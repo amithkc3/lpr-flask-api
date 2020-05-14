@@ -4,6 +4,7 @@ import sys
 import numpy as np
 import os.path
 import tensorflow as tf
+from difflib import get_close_matches
 
 # from google.colab.patches import cv2_imshow
 
@@ -98,6 +99,12 @@ class CR:
     self.loaded = tf.saved_model.load('./WEIGHTS/CNN/')
     self.infer = self.loaded.signatures["serving_default"]
 
+  def get_registered_plates(self):
+    url = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/getAllLicenseNo'
+    response = requests.post(url,data='')
+    plates = json.loads(response._content)
+    return plates
+
   def predict_char_saved(self,img):
     # loaded = tf.saved_model.load('./')
     # infer = loaded.signatures["serving_default"]
@@ -168,7 +175,10 @@ class CR:
             # char = img[y:y+h,x:x+w]
           char = img[y1:y2,x1:x2]
           charList.append(self.predict_char_saved(char))
-    return charList
+
+    plate_str = ''.join(charList)
+    registered_plates = self.get_registered_plates()
+    return get_close_matches(plate_str,registered_plates,cutoff=0.6)
 ###-------------------------------------------------CR------------------------------------------------
 
 ###-----------------------------------------execution code--------------------------------------------
