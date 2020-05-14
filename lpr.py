@@ -5,7 +5,8 @@ import numpy as np
 import os.path
 import tensorflow as tf
 from difflib import get_close_matches
-
+import requests
+import json
 # from google.colab.patches import cv2_imshow
 
 def test():
