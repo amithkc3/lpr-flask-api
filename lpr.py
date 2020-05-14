@@ -103,7 +103,7 @@ class CR:
   def get_registered_plates(self):
     url = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/getAllLicenseNo'
     response = requests.post(url,data='')
-    plates = json.loads(response._content)
+    plates = json.loads(response.content.decode('utf-8'))
     return plates
 
   def predict_char_saved(self,img):
