@@ -187,10 +187,12 @@ class CR:
 
     plate_str = ''.join(charList)
     registered_plates = self.get_registered_plates_from_file()
-    print(plate_str)
-    print(registered_plates)
-    print(get_close_matches(plate_str,registered_plates,cutoff=0.6))
-    return get_close_matches(plate_str,registered_plates,cutoff=0.6)
+    # print(plate_str)
+    # print(registered_plates)
+    # print(get_close_matches(plate_str,registered_plates,cutoff=0.6))
+    plates = get_close_matches(plate_str,registered_plates,cutoff=0.7)
+    # print(plates)
+    return plates
 ###-------------------------------------------------CR------------------------------------------------
 
 ###-----------------------------------------execution code--------------------------------------------

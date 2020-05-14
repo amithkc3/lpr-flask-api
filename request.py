@@ -5,8 +5,8 @@ import requests
 import sys
 
 def get_plate(img_path='./images/car1.jpg'):
-	url = 'http://35.232.168.219:5000/get_plate_checkin'
-	# url = 'http://localhost:5000/get_plate_checkin'
+	# url = 'http://35.232.168.219:5000/get_plate_checkin'
+	url = 'http://localhost:5000/get_plate_checkin'
 
 	img = Image.open(img_path)
 	buff = io.BytesIO()
