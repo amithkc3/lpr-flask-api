@@ -28,13 +28,16 @@ def get_plate_checkin():
 		if(len(plate_coor)):
 			plate_chars = charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]])
 			print(plate_chars)
-			plate_info = {"licenseNo" :plate_chars[0],"parking": '0001'}
-			headers = {'Content-type': 'application/json'}
-			firebase_url_checkin = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/vehicleCheckIn'
-			# requests.post(firebase_url_checkin,json=json.dumps(plate_info))
-			response = requests.post(firebase_url_checkin,data=json.dumps(plate_info),headers=headers)
-			print(response)
-			return jsonify(plate_info)
+			if(len(plate_chars) > 0):
+				plate_info = {"licenseNo" :plate_chars[0],"parking": '0001'}
+				headers = {'Content-type': 'application/json'}
+				firebase_url_checkin = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/vehicleCheckIn'
+				# requests.post(firebase_url_checkin,json=json.dumps(plate_info))
+				response = requests.post(firebase_url_checkin,data=json.dumps(plate_info),headers=headers)
+				print(response)
+				return jsonify(plate_info)
+			else:
+				return jsonify(licenseNo = '')
 		else:
 			return jsonify(licenseNo = '')
 	else:
@@ -50,14 +53,18 @@ def get_plate_checkout():
 		if(len(plate_coor)):
 			plate_chars = charRecognizer.opencvReadPlate(img[plate_coor[0][0]:plate_coor[0][1],plate_coor[0][2]:plate_coor[0][3]])
 			print(plate_chars)
-			plate_info = {"licenseNo" :plate_chars[0],"parking": '0001'}
-			headers = {'Content-type': 'application/json'}
-			firebase_url_checkout = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/vehicleCheckOut'
-			response = requests.post(firebase_url_checkout,data=json.dumps(plate_info),headers=headers)
-			print(response)
-			return jsonify(plate_info)
+			if(len(plate_chars) > 0):
+				plate_info = {"licenseNo" :plate_chars[0],"parking": '0001'}
+				headers = {'Content-type': 'application/json'}
+				firebase_url_checkout = 'https://us-central1-final-year-project-d4c31.cloudfunctions.net/vehicleCheckOut'
+				response = requests.post(firebase_url_checkout,data=json.dumps(plate_info),headers=headers)
+				print(response)
+				return jsonify(plate_info)
+			else:
+				return jsonify(licenseNo = '')
 		else:
 			return jsonify(licenseNo = '')
+
 	else:
 		return "400"
 
