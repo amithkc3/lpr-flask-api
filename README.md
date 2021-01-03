@@ -1,11 +1,9 @@
 <h1>  License Plate Detection and Recognition API  </h1>
-  <h3>
-  Using : <br>
-  
+  <h3>  The method used for can be categorized as these 3 steps: </h3>
   YOLOV3 for Plate detection and localization<br>
   Contour detection using opencv for character segmentation<br>
   35 class ConvNet classifier for character recognition on a pretrained dataset<br>
-  </h3>
+  
  
  <h3>
   This repo contains the code to host pretrained lpr model as a flask microservice
