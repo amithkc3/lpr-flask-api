@@ -24,7 +24,7 @@ pip3 install pillow
 sudo apt-get install libsm6 libxrender1 libfontconfig1 libxext6 
 
 ```
-<h3>To run thhe flask server:</h3>
+<h3>To run the flask server:</h3>
 
 ```
 export FLASK_APP=app.py
@@ -32,13 +32,13 @@ export FLASK_APP=app.py
 python3 -m flask run --host=0.0.0.0
 ```
 
-Test the server using 
+Test the server using:
 ```
 python3 request.py
 ```
 
 <h3>To run the lpr on a image</h3>
-change the image path in the execution block of the code and run <br>
+change the image path in the execution block of the code ( in lpr.py ) and run <br>
 
 ```
 python3 lpr.py
