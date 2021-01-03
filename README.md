@@ -9,6 +9,9 @@
   This repo contains the code to host pretrained lpr model as a flask microservice
 </h3>
 
+Dataset : https://www.kaggle.com/amithkumarc3/license-plate-recognition <br>
+Download the dataset and place the WEIGHTS folder in the project root dir.
+
 <h3>Prerequisite (Requirements) </h3>
 
 ```
