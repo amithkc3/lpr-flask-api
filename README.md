@@ -1,22 +1,31 @@
-<h1>instructions:</h1>
-<h3>Prerequisite (STEPS) </h3>
+<h1>  License Plate Detection and Recognition API  </h1>
+  <h3>
+  Using : <br>
+  
+  YOLOV3 for Plate detection and localization<br>
+  Contour detection using opencv for character segmentation<br>
+  35 class ConvNet classifier for character recognition on a pretrained dataset<br>
+  </h3>
+ 
+ <h3>
+  This repo contains the code to host pretrained lpr model as a flask microservice
+</h3>
+
+<h3>Prerequisite (Requirements) </h3>
 
 ```
-sudo apt-get update<br>
-sudo apt-get install python3-pip<br>
-sudo apt-get install git<br>
-mkdir codebase;cd codebase<br>
-pip3 install tensorflow==1.14<br>
-pip3 install opencv-python<br>
-pip3 install pillow <br>
-sudo apt-get install libsm6 libxrender1 libfontconfig1 libxext6 <br>
+pip3 install tensorflow==1.14
+pip3 install opencv-python
+pip3 install pillow 
+sudo apt-get install libsm6 libxrender1 libfontconfig1 libxext6 
 
 ```
-<h1>To run:</h1>
+<h3>To run:</h3>
 
 ```
 export FLASK_APP=app.py
 
 python3 -m flask run --host=0.0.0.0
 ```
+
 
