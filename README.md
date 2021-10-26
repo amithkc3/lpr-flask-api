@@ -9,7 +9,7 @@
  
   ![LPR block diagram image](https://github.com/amithkumarc3/lpr-flask-api/blob/master/System-architecture-lpr-app.png)
 
- <h3>LPR block diagram: </h3> <br>
+ <h3>LPR block diagram (License/Number Plate Recognition API): </h3> <br>
  
  ![LPR block diagram image](https://github.com/amithkumarc3/lpr-flask-api/blob/master/nprblockDiagram.png)
  <h3>
