@@ -5,6 +5,9 @@
   2.  Contour detection using opencv for character segmentation<br>
   3.  35 class ConvNet classifier for character recognition on a pretrained dataset<br>  
  
+ <h3>System Architecture</h3><br>
+ ![System Architecture](https://github.com/amithkumarc3/lpr-flask-api/blob/master/System-architecture-lpr-app.png)
+ 
  <h3>LPR block diagram: </h3> <br>
  
  ![LPR block diagram image](https://github.com/amithkumarc3/lpr-flask-api/blob/master/nprblockDiagram.png)
