@@ -4,7 +4,8 @@
   1.  YOLOV3 for Plate detection and localization<br>
   2.  Contour detection using opencv for character segmentation<br>
   3.  35 class ConvNet classifier for character recognition on a pretrained dataset<br>  
- 
+
+ Related paper published in IJTRE - https://ijtre.com/wp-content/uploads/2021/10/2020080106.pdf
  <h3>System Architecture </h3> <br>
  
   ![LPR block diagram image](https://github.com/amithkumarc3/lpr-flask-api/blob/master/System-architecture-lpr-app.png)
